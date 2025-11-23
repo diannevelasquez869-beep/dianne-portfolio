@@ -93,9 +93,17 @@
             <a class="nav-link" href="{{ route('about') }}">About</a>
             <a class="nav-link" href="{{ route('work') }}">Work</a>
             <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+
+            @if(session()->has('user'))
+                <a class="nav-link" href="{{ route('signout') }}">Signout</a>
+            @else
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                <a class="nav-link" href="{{ route('register') }}">Register</a>
+            @endif
         </div>
     </div>
 </nav>
+
 
 <main class="container py-5">
     @yield('content')
